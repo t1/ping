@@ -1,0 +1,11 @@
+log-handlers:
+  PING:
+    file: ping.log
+loggers:
+  com.github.t1.ping:
+    level: DEBUG
+    handler: PING
+deployables:
+  ping:
+    version: ${ping.version}
+    state: ${ping.state or «deployed»}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project
+        xmlns="urn:xsd:maven:pomx:5.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="urn:xsd:maven:pomx:5.0.0 https://raw.githubusercontent.com/t1/pomx/master/src/main/resources/schemas/pomx-5.0.0.xsd">
+    <war>com.github.t1:ping:1.0.0-SNAPSHOT</war>
+    <name>Ping</name>
+    <description>Demo JEE Web Archive App</description>
+
+    <profile>com.github.t1:profile-t1:1.0.0-SNAPSHOT</profile>
+    <profile>com.github.t1:profile-javaee:8.0.0-SNAPSHOT</profile>
+
+    <build>
+        <plugins>
+            <plugin id="org.codehaus.mojo:build-helper-maven-plugin:1.12">
+                <executions>
+                    <execution>
+                        <id>attach-artifacts</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>src/main/deployer/ping.bundle</file>
+                                    <type>bundle</type>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <test>
+            <jar>ch.qos.logback:logback-classic:1.2.3</jar>
+            <jar>com.github.t1:jax-rs-test-extension:1.0-SNAPSHOT</jar>
+        </test>
+    </dependencies>
+</project>
