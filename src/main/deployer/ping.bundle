@@ -7,5 +7,3 @@ loggers:
     handler: PING
 deployables:
   ping:
-    version: ${ping.version}
-    state: ${ping.state or «deployed»}
