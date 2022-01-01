@@ -18,6 +18,6 @@ public class PingRestBehavior {
         Response response = jaxRs.GET("/");
 
         assertThat(response.getStatusInfo()).isEqualTo(OK);
-        assertThat(response.readEntity(String.class)).isEqualTo("ping");
+        assertThat(response.readEntity(String.class)).isEqualTo("pong");
     }
 }
