@@ -10,9 +10,11 @@ jobs:
     steps:
     - name: checkout code
       uses: actions/checkout@v2
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
     - name: login to docker hub
       run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u rdohna --password-stdin
-    - name: install buildx
-      run: docker buildx create --use
     - name: build and push the image
       run: docker buildx build --push --platform linux/arm64,linux/amd64 --tag rdohna/wildfly-ping .
