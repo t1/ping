@@ -1,7 +1,14 @@
 FROM openjdk:11
 LABEL maintainer=https://github.com/t1 license=Apache-2.0 name='' build-date='' vendor=''
 
+# this path is also in ENTRYPOINT below
 ENV JBOSS_HOME /opt/jboss/wildfly
+
+# Ensure signals are forwarded to the JVM process correctly for graceful shutdown
+ENV LAUNCH_JBOSS_IN_BACKGROUND true
+
+#      app  dbg  adm
+EXPOSE 8080 8787 9990
 
 USER root
 RUN addgroup --system --gid 1000 wildfly \
@@ -17,11 +24,6 @@ RUN curl -L -O https://github.com/wildfly/wildfly/releases/download/$WILDFLY_VER
     mv wildfly-$WILDFLY_VERSION/* . && \
     rm wildfly-$WILDFLY_VERSION.tar.gz
 
-# Ensure signals are forwarded to the JVM process correctly for graceful shutdown
-ENV LAUNCH_JBOSS_IN_BACKGROUND true
-
-#      app  dbg  adm
-EXPOSE 8080 8787 9990
-
-ENTRYPOINT ["/opt/wildfly/bin/standalone.sh"]
+# this path is also in JBOSS_HOME above
+ENTRYPOINT ["/opt/jboss/wildfly/bin/standalone.sh"]
 CMD ["--debug", "--read-only-server-config=standalone.xml", "-b=0.0.0.0", "-bmanagement=0.0.0.0"]
