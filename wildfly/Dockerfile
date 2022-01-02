@@ -1,7 +1,7 @@
 FROM openjdk:11
 LABEL maintainer=https://github.com/t1 license=Apache-2.0 name='' build-date='' vendor=''
 
-ENV JBOSS_HOME /opt/wildfly
+ENV JBOSS_HOME /opt/jboss/wildfly
 
 USER root
 RUN addgroup --system --gid 1000 wildfly \
