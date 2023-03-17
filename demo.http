@@ -1,0 +1,15 @@
+### Ping
+# @no-redirect
+GET http://{{host}}/ping
+Accept: text/plain
+Authorization: {{auth}}
+
+> {%
+client.test("GET a pong", function() {
+  client.log(`response ${response.status}: ${response.body}`);
+  client.assert(response.status === 200, "status is 200 OK");
+  client.assert(response.body === "pong", "body is 'pong'");
+})
+%}
+
+>> target/pong.txt

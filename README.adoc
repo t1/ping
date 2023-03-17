@@ -1,0 +1,5 @@
+= Ping
+
+A super-simple Ping application for my personal use.
+
+Built into a Docker image available at https://hub.docker.com/repository/docker/rdohna/wildfly-ping/general[Docker-Hub]
