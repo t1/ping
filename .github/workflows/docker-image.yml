@@ -16,7 +16,7 @@ jobs:
         cache: 'maven'
     - name: Maven build
       run: mvn --batch-mode --show-version --no-transfer-progress install
-    - uses: docker/setup-qemu-action@v1
+    - uses: docker/setup-qemu-action@v2
     - uses: docker/setup-buildx-action@v1
     - name: login to docker hub
       run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u rdohna --password-stdin
