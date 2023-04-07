@@ -30,7 +30,7 @@
             <plugin>
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
-                <version>4.1.0.Beta4</version>
+                <version>4.1.0.Beta5</version>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
