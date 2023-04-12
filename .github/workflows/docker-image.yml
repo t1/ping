@@ -2,7 +2,8 @@ name: build and push Docker image
 
 on:
   push:
-    branches: [ master ]
+  pull_request:
+  schedule: [ cron: '12 1 * * 5' ] # weekly: At 01:12 on Friday
 
 jobs:
   build:
