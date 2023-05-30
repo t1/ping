@@ -6,7 +6,8 @@ on:
   schedule: [ cron: '12 1 * * 5' ] # weekly: At 01:12 on Friday
 
 jobs:
-  build:
+  build-only:
+    if: github.ref != 'refs/heads/trunk'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -18,10 +19,18 @@ jobs:
     - name: Maven build
       run: mvn --batch-mode --show-version --no-transfer-progress install
 
-  deploy:
+  build-and-deploy:
     if: github.ref == 'refs/heads/trunk'
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-java@v3
+      with:
+        java-version: 17
+        distribution: 'temurin'
+        cache: 'maven'
+    - name: Maven build
+      run: mvn --batch-mode --show-version --no-transfer-progress install
     - uses: docker/setup-qemu-action@v2
     - uses: docker/setup-buildx-action@v2
     - name: docker-login
