@@ -19,7 +19,7 @@ jobs:
       run: mvn --batch-mode --show-version --no-transfer-progress install
 
   deploy:
-    if: github.branch == 'master'
+    if: github.branch == 'trunk'
     runs-on: ubuntu-latest
     steps:
     - uses: docker/setup-qemu-action@v2
