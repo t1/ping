@@ -19,7 +19,7 @@
         <maven.compiler.parameters>true</maven.compiler.parameters>
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
-        <maven-test-plugins.version>3.2.5</maven-test-plugins.version>
+        <maven-test-plugins.version>3.3.0</maven-test-plugins.version>
     </properties>
 
     <build>
