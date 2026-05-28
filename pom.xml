@@ -16,7 +16,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
-        <maven-test-plugins.version>3.5.5</maven-test-plugins.version>
+        <maven-test-plugins.version>3.5.6</maven-test-plugins.version>
         <lombok.version>1.18.46</lombok.version>
     </properties>
 
