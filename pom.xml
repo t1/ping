@@ -17,7 +17,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
         <maven-test-plugins.version>3.5.6</maven-test-plugins.version>
-        <lombok.version>1.18.46</lombok.version>
+        <lombok.version>1.18.48</lombok.version>
     </properties>
 
     <build>
